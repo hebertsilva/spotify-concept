@@ -1,0 +1,31 @@
+{
+  "root": true,
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "parser": "babel-eslint",
+    "sourceType": "module",
+    "ecmaVersion": 6
+  },
+  "extends": ["prettier", "prettier/react"],
+  "plugins": ["prettier"],
+  "settings": {
+    "import/parser": "babel-eslint",
+    "import/resolve": {
+      "node": {
+        "moduleDirectory": ["node_modules", "src"]
+      }
+    }
+  },
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "trailingComma": "none",
+        "semi": false,
+        "tabWidth": 2,
+        "useTabs": false
+      }
+    ]
+  }
+}

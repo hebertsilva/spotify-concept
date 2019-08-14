@@ -1,0 +1,43 @@
+.home-wrapper {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+.home-children {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .children-box {
+    vertical-align: middle
+
+    img {
+      max-width: 100%;
+      width: auto;
+    }
+  }
+
+  h2 {
+    font-size: 50px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+    line-height: 1.4em;
+  }
+
+  p {
+    color: #8c8c8c;
+    font-size: 16px;
+    line-height: 1.4em;
+  }
+
+  .button {
+    display: inline-block;
+    margin-top: 50px;
+  }
+}
+
+.site-name {
+  padding-bottom: 50px;
+}
