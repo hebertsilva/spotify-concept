@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import request from '../../utils/request'
 import logo from '../../static/img/Spotify-logo.png'
 import user from '../../static/img/user.png'
 import './style.scss'
@@ -8,7 +9,7 @@ export default class Home extends Component {
   signin = async event => {
     event.preventDefault()
 
-    const { data } = await axios.get('/api/login')
+    const { data } = await request().get('/login')
     window.location.href = data
   }
 

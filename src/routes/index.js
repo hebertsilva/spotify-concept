@@ -1,7 +1,7 @@
 import Root from '../pages'
 import Home from '../pages/home'
 import Auth from '../pages/auth'
-import Dashboard from '../pages/dashboard'
+import Profile from '../pages/profile'
 
 const routes = [
   {
@@ -18,9 +18,9 @@ const routes = [
         component: Auth
       },
       {
-        path: '/dashboard',
+        path: '/profile',
         exact: true,
-        component: Dashboard
+        component: Profile
       }
     ]
   }

@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 // import { Redirect } from 'react-router-dom'
 // import { isEmpty } from '../utils/filter'
-import request from '../utils/request'
+import Loading from '../../components/ui/Loading'
 
-export default class Dashboard extends Component {
+import request from '../../utils/request'
+
+export default class Profile extends Component {
   state = {
-    account: {}
+    account: {},
+    loading: true
   }
 
   componentDidMount() {
@@ -16,14 +19,19 @@ export default class Dashboard extends Component {
     const { data, status } = await request().get('/me')
 
     if (status === 200) {
-      this.setState({ account: data.account })
+      this.setState({ account: data.account, loading: false })
     }
 
     console.log('### user details =>', data)
   }
 
   render() {
-    const { display_name } = this.state.account
+    const { loading, account } = this.state
+    const { display_name } = account
+
+    if (loading) {
+      return <Loading />
+    }
 
     // if (isEmpty(this.state.account)) {
     // return <Redirect to="/" />
