@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom'
 // import { isEmpty } from '../utils/filter'
 import Loading from '../../components/ui/Loading'
 import Header from '../../components/commons/Header'
+import Menu from '../../components/commons/Menu'
 
 import request from '../../utils/request'
 import './style.scss'
@@ -46,50 +47,7 @@ export default class Profile extends Component {
       <div className="profile-wrapper">
         <div class="profile-main color-bg-white-100">
           <Header data={account} />
-
-          <nav className="profile-sidebar">
-            <ol class="sidebar-nav">
-              <li>
-                <a href="/">
-                  <span>
-                    <i className="icon-music"></i>
-                  </span>
-                  Playlists
-                  <i className="icon-angle-right"></i>
-                </a>
-              </li>
-
-              <li>
-                <a href="/">
-                  <span>
-                    <i className="icon-music"></i>
-                  </span>
-                  Albums
-                  <i className="icon-angle-right"></i>
-                </a>
-              </li>
-
-              <li>
-                <a href="/">
-                  <span>
-                    <i className="icon-music"></i>
-                  </span>
-                  Playlist
-                  <i className="icon-angle-right"></i>
-                </a>
-              </li>
-
-              <li>
-                <a href="/">
-                  <span>
-                    <i className="icon-music"></i>
-                  </span>
-                  Playlist
-                  <i className="icon-angle-right"></i>
-                </a>
-              </li>
-            </ol>
-          </nav>
+          <Menu />
         </div>
 
         <div class="profile-player color-bg-green-100">
