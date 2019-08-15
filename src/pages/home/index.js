@@ -37,7 +37,7 @@ export default class Home extends Component {
           </div>
 
           <div className="children-box">
-            <img src={user} title="Spotify User" />
+            <img src={user} alt="Spotify User" />
           </div>
         </div>
       </div>

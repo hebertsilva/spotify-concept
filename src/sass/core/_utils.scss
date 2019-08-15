@@ -2,3 +2,5 @@
 .font-1 {
   font-family: $font-1;
 }
+
+@include generate-color-helper();

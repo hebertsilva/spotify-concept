@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import routes from './routes'
 import { BrowserRouter } from 'react-router-dom'
 import { renderRoutes } from 'react-router-config'
+import './fontello/css/fontello.css'
 import './sass/base.scss'
 
 require('dotenv').config()

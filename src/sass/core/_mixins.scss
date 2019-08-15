@@ -1,0 +1,13 @@
+/* Colors
+========================================================================== */
+@mixin generate-color-helper() {
+  @each $color, $value in $palette-colors {
+    .color-ft-#{$color} {
+      color: $value;
+    }
+
+    .color-bg-#{$color} {
+      background-color: $value;
+    }
+  }
+}
