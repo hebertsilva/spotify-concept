@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { isEmpty } from '../../utils/filter'
-
+import { Redirect } from 'react-router-dom'
 import logo from '../../static/img/Spotify-logo.png'
 import './style.scss'
+import request from '../../utils/request'
 
 export default class Header extends Component {
   static propTypes = {
@@ -14,6 +15,10 @@ export default class Header extends Component {
     data: {}
   }
 
+  state = {
+    redirect: false
+  }
+
   constructor(props) {
     super(props)
   }
@@ -22,10 +27,23 @@ export default class Header extends Component {
     console.log('## props =>', this.props.data)
   }
 
+  signout = async event => {
+    event.preventDefault()
+    const { data, status } = await request().post('/signout')
+
+    if (status === 200 && data.signout) {
+      this.setState({ redirect: true })
+    }
+  }
+
   render() {
     const { data } = this.props
     if (isEmpty(data)) {
       return null
+    }
+
+    if (this.state.redirect) {
+      return <Redirect to="/" />
     }
 
     const { display_name } = this.props.data
@@ -63,7 +81,7 @@ export default class Header extends Component {
                   </a>
                 </li>
                 <li>
-                  <a href="" title="Sair">
+                  <a href="" title="Sair" onClick={this.signout}>
                     Sair
                   </a>
                 </li>
