@@ -14,7 +14,7 @@ export default class Playlist extends Component {
   getPlaylists = async () => {
     const { data, status } = await request().get('/playlist')
     if (status === 200) {
-      this.setState({ data: data.playlist.items })
+      this.setState({ data: data.items })
     }
   }
 

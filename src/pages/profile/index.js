@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
-// import { isEmpty } from '../utils/filter'
 import Loading from '../../components/ui/Loading'
 import Header from '../../components/commons/Header'
 import Menu from '../../components/commons/Menu'
@@ -24,7 +23,7 @@ export default class Profile extends Component {
     const { data, status } = await request().get('/me')
 
     if (status === 200) {
-      this.setState({ account: data.account, loading: false, authUser: true })
+      this.setState({ account: data, loading: false, authUser: true })
     } else {
       this.setState({ authUser: false })
     }
@@ -32,14 +31,13 @@ export default class Profile extends Component {
 
   render() {
     const { loading, account, authUser } = this.state
-    const { display_name } = account
-
-    if (loading) {
-      return <Loading />
-    }
 
     if (!authUser) {
       return <Redirect to="/" />
+    }
+
+    if (loading) {
+      return <Loading />
     }
 
     return (

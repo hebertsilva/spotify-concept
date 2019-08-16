@@ -1,17 +1,23 @@
 import querystring from 'querystring'
 import request from './request'
-import { REDIRECT_URI, STATE_KEY, API_BASE } from './constants'
+import write from './write'
+import { API_BASE } from './constants'
 
 export const all = async (req, res, next) => {
-  const { access_token } = req.session.accounts
+  try {
+    const config = write.genHeaders(req, 'Bearer')
 
-  const config = {
-    headers: {
-      Authorization: `Bearer ${access_token}`
+    const { data, status } = await request(API_BASE).get(
+      '/me/playlists',
+      config
+    )
+
+    if (!data.status === 200) {
+      throw { data, status }
     }
+
+    write.response(res, data, status)
+  } catch (err) {
+    write.response(res, err.data, err.status)
   }
-
-  const response = await request(API_BASE).get('/me/playlists', config)
-
-  res.send({ playlist: response.data })
 }

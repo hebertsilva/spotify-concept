@@ -1,17 +1,25 @@
-import querystring from 'querystring'
 import request from './request'
-import { REDIRECT_URI, STATE_KEY, API_BASE } from './constants'
+import write from './write'
+import { API_BASE } from './constants'
 
 export const account = async (req, res, next) => {
-  const { access_token, refresh_token } = req.session.accounts
+  const { accounts } = req.session
 
-  const config = {
-    headers: {
-      Authorization: `Bearer ${access_token}`
+  try {
+    if (!accounts) {
+      throw { error: '401 Unauthorized', status: 401 }
     }
+
+    const config = write.genHeaders(req, 'Bearer')
+
+    const { data, status } = await request(API_BASE).get('/me', config)
+
+    if (!data.status === 200) {
+      throw { data, status }
+    }
+
+    write.response(res, data, status)
+  } catch (err) {
+    write.response(res, err, err.status)
   }
-
-  const { data, status } = await request(API_BASE).get('/me', config)
-
-  res.send({ account: data })
 }
