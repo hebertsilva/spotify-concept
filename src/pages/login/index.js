@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import request from '../../utils/request'
 import logo from '../../static/img/Spotify-logo.png'
 import user from '../../static/img/user.png'
 import './style.scss'
 
-export default class Home extends Component {
+export default class Login extends Component {
   signin = async event => {
     event.preventDefault()
 

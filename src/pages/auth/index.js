@@ -27,13 +27,13 @@ export default class Authorization extends Component {
 
   render() {
     const { redirect, loading } = this.state
-
+    console.log('### me =>')
     // if (loading) {
     //   return <Loading />
     // }
 
     if (redirect) {
-      return <Redirect to="/profile" />
+      return <Redirect to="/me/" />
     }
 
     return (

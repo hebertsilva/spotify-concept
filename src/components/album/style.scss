@@ -1,6 +1,10 @@
 .wrapper-playlist {
   max-width: 100%;
 
+  a {
+    display: block;
+  }
+
   ol {
     display: inline-grid;
     grid-template-columns: 25% 25% 25%;

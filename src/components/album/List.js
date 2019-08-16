@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import request from '../../utils/request'
 import './style.scss'
 
-export default class Playlist extends Component {
+export default class List extends Component {
   state = {
     data: []
   }
@@ -30,12 +30,14 @@ export default class Playlist extends Component {
         {data.map((item, k) => {
           return (
             <li key={k}>
-              <div className="image">
-                <img src={item.images[0].url} alt={item.name} />
-              </div>
+              <a href={item.external_urls.spotify} target="_blank">
+                <div className="image">
+                  <img src={item.images[0].url} alt={item.name} />
+                </div>
 
-              <p>{item.name}</p>
-              <p>{item.tracks.total}+ Total Songs</p>
+                <p>{item.name}</p>
+                <p>{item.tracks.total}+ Total Songs</p>
+              </a>
             </li>
           )
         })}
