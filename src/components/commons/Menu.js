@@ -4,7 +4,7 @@ import './style.scss'
 export default function Menu() {
   return (
     <nav className="profile-sidebar">
-      <ol class="sidebar-nav">
+      <ol className="sidebar-nav">
         <li>
           <a href="/">
             <span>

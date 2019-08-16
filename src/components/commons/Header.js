@@ -23,10 +23,6 @@ export default class Header extends Component {
     super(props)
   }
 
-  componentDidMount() {
-    console.log('## props =>', this.props.data)
-  }
-
   signout = async event => {
     event.preventDefault()
     const { data, status } = await request().post('/signout')
@@ -45,8 +41,6 @@ export default class Header extends Component {
     if (this.state.redirect) {
       return <Redirect to="/" />
     }
-
-    const { display_name } = this.props.data
 
     return (
       <header className="header-wrapper">

@@ -114,9 +114,9 @@ $white-100: #fbfafb;
 
 // Sidebar menu
 .profile-sidebar {
-  width: 300px;
+  min-width: 300px;
   border-right: 1px solid $gray-100;
-  height: calc(100% - 100px);
+  height: 100%;
   padding-top: 50px;
 
   .sidebar-nav {

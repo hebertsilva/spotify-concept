@@ -34,8 +34,6 @@ export const setToken = async (req, res, next) => {
       config
     )
 
-    console.log('### status =>', status)
-    console.log('### data =>', data)
     // Set toquen in session
     if (status === 200) {
       req.session.accounts = data

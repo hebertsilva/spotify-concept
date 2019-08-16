@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom'
 import Loading from '../../components/ui/Loading'
 import Header from '../../components/commons/Header'
 import Menu from '../../components/commons/Menu'
+import Playlist from '../../components/music/Playlist'
 
 import request from '../../utils/request'
 import './style.scss'
@@ -27,8 +28,6 @@ export default class Profile extends Component {
     } else {
       this.setState({ authUser: false })
     }
-
-    console.log('### user details =>', status)
   }
 
   render() {
@@ -45,14 +44,19 @@ export default class Profile extends Component {
 
     return (
       <div className="profile-wrapper">
-        <div class="profile-main color-bg-white-100">
+        <div className="profile-main color-bg-white-100">
           <Header data={account} />
-          <Menu />
+
+          <div className="wrapper-content">
+            <Menu />
+
+            <div className="wrapper-body">
+              <Playlist />
+            </div>
+          </div>
         </div>
 
-        <div class="profile-player color-bg-green-100">
-          {/* vazio aqui vai o player componente do profile */}
-        </div>
+        <div className="profile-player color-bg-green-100"></div>
       </div>
     )
   }

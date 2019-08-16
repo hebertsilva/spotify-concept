@@ -4,3 +4,9 @@
 }
 
 @include generate-color-helper();
+
+.title-section {
+  color: map-get($palette-colors, black-200);
+  font-size: 30px;
+  font-weight: normal;
+}
