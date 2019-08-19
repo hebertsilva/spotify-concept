@@ -3,7 +3,7 @@ import request from './request'
 import write from './write'
 import { API_BASE } from './constants'
 
-export const all = async (req, res, next) => {
+export const playlists = async (req, res, next) => {
   try {
     const config = write.genHeaders(req, 'Bearer')
 

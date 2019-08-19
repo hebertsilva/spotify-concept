@@ -3,7 +3,7 @@ import Me from '../pages/me'
 import Login from '../pages/login'
 import Profile from '../pages/profile'
 import Auth from '../pages/auth'
-import Playlits from '../pages/album/playlist'
+import Tracks from '../pages/playlists/tracks'
 
 const routes = [
   {
@@ -29,9 +29,9 @@ const routes = [
             component: Profile
           },
           {
-            path: '/me/playlits',
+            path: '/me/playlists/:id',
             exact: true,
-            component: Playlits
+            component: Tracks
           }
         ]
       }

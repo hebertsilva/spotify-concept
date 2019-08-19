@@ -3,7 +3,10 @@
 @import "core/mixins";
 @import "core/utils";
 
+// Base
+@import "base/sidebar";
+@import "base/layout";
+
 // Commons
 @import "pages/common";
 @import "core/buttons";
-@import "core/layout";

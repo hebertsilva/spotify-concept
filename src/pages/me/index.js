@@ -1,14 +1,11 @@
 import React from 'react'
 import { renderRoutes } from 'react-router-config'
-import Header from '../../components/commons/Header'
-import Menu from '../../components/commons/Menu'
+import Navigation from '../../components/base/Sidebar'
 
 function Me({ route }) {
   return (
-    <div className="wrapper-profile">
-      <Header />
-      <Menu />
-
+    <div className="wrapper-content">
+      <Navigation />
       <div className="content">{renderRoutes(route.routes)}</div>
     </div>
   )
