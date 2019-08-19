@@ -1,7 +1,7 @@
 import express from 'express'
 import login from './login'
 import signout from './signout'
-import { playlists } from './playlists'
+import { playlists, tracks } from './playlists'
 import { setToken } from './token'
 import { account } from './user'
 
@@ -13,5 +13,6 @@ router.post(`${apiUri}/signout`, signout)
 router.post(`${apiUri}/set-token`, setToken)
 router.get(`${apiUri}/me`, account)
 router.get(`${apiUri}/playlists`, playlists)
+router.get(`${apiUri}/playlists/:id`, tracks)
 
 export default router

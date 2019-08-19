@@ -7,11 +7,12 @@ export default class Tracks extends Component {
     loaded: false
   }
   componentDidMount() {
-    this.getPlaylists()
+    this.getTracks()
   }
 
-  getPlaylists = async () => {
-    const { data, status } = await request().get('/playlists')
+  getTracks = async () => {
+    const { id } = this.props.match.params
+    const { data, status } = await request().get(`/playlists/${id}`)
 
     if (status === 200) {
       this.setState({ playlists: data.items, loaded: true })

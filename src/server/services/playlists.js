@@ -21,3 +21,25 @@ export const playlists = async (req, res, next) => {
     write.response(res, err.data, err.status)
   }
 }
+
+export const tracks = async (req, res, next) => {
+  try {
+    const config = write.genHeaders(req, 'Bearer')
+    const id = req.params.id
+
+    console.log('### id =>', id)
+
+    const { data, status } = await request(API_BASE).get(
+      `/playlists/${id}`,
+      config
+    )
+
+    if (!data.status === 200) {
+      throw { data, status }
+    }
+
+    write.response(res, data, status)
+  } catch (err) {
+    write.response(res, err.data, err.status)
+  }
+}
