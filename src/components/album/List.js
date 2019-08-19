@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import request from '../../utils/request'
+import Loading from '../ui/Loading'
+
 import './style.scss'
 
 export default class List extends Component {
   state = {
-    data: []
+    data: [],
+    loaded: false
   }
 
   componentDidMount() {
@@ -14,7 +17,7 @@ export default class List extends Component {
   getPlaylists = async () => {
     const { data, status } = await request().get('/playlist')
     if (status === 200) {
-      this.setState({ data: data.items })
+      this.setState({ data: data.items, loaded: true })
     }
   }
 
@@ -46,6 +49,10 @@ export default class List extends Component {
   }
 
   render() {
+    if (!this.state.loaded) {
+      return <Loading />
+    }
+
     return (
       <div className="wrapper-playlist">
         <h1 className="title-section">Playlist</h1>

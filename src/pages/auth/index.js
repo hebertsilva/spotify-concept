@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { query } from '../../utils/filter'
 import request from '../../utils/request'
-import logo from '../../static/img/Spotify-logo.png'
+import Loading from '../../components/ui/Loading'
+
 import './style.scss'
 
 export default class Authorization extends Component {
@@ -27,10 +28,6 @@ export default class Authorization extends Component {
 
   render() {
     const { redirect, loading } = this.state
-    console.log('### me =>')
-    // if (loading) {
-    //   return <Loading />
-    // }
 
     if (redirect) {
       return <Redirect to="/me/" />
@@ -38,9 +35,7 @@ export default class Authorization extends Component {
 
     return (
       <div className="auth-wrapper">
-        <div>
-          <img src={logo} title="Spotify Auth" width="100%" />
-        </div>
+        <Loading />
       </div>
     )
   }

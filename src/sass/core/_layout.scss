@@ -9,5 +9,9 @@
     padding: 20px 50px 20px;
     overflow-y: auto;
     padding-top: 100px;
+
+    > div {
+      height: 100%;
+    }
   }
 }
