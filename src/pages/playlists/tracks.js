@@ -59,6 +59,7 @@ export default class Tracks extends Component {
 
   prevNavPlaylist = event => {
     event.preventDefault()
+    this.setState({ loaded: false })
     const url = this.state.playlists.tracks.previous
 
     if (url) {
@@ -68,6 +69,7 @@ export default class Tracks extends Component {
 
   prevNextPlaylist = event => {
     event.preventDefault()
+    this.setState({ loaded: false })
     const url = this.state.playlists.tracks.next
 
     if (url) {
