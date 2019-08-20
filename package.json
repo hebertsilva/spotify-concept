@@ -43,7 +43,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --fix --ext .js src"
+    "lint": "eslint --fix --ext .js src",
+    "heroku-postbuild": "yarn build && concurrently \"yarn server\" \"yarn start\""
   },
   "eslintConfig": {
     "extends": "react-app"
