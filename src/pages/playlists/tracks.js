@@ -10,7 +10,9 @@ export default class Tracks extends Component {
   }
 
   componentDidUpdate() {
-    this.getTracks()
+    if (this.state.loaded) {
+      this.getTracks()
+    }
   }
 
   componentDidMount() {
@@ -21,6 +23,7 @@ export default class Tracks extends Component {
     const { id } = this.props.match.params
 
     if (id !== this.state.id || query) {
+      this.setState({ loaded: false })
       const url = query ? `/playlists/${id}?${query}` : `/playlists/${id}`
       const { data, status } = await request().get(url)
 
@@ -110,7 +113,11 @@ export default class Tracks extends Component {
 
     return (
       <div className="playlists-wrapper">
-        <div className="playlists-head">
+        <div
+          className={`playlists-head color-${Math.floor(
+            Math.random() * 3 + 1
+          )}`}
+        >
           <div>
             <h1 className="name">{playlists.name}</h1>
 

@@ -3,10 +3,33 @@
 }
 
 .playlists-head {
-  background-image: linear-gradient(to right, #914dfe, #44345d);
   min-height: 300px;
   display: flex;
   align-items: center;
+
+  &.color-1 {
+    background-image: linear-gradient(to right, #914dfe, #44345d);
+
+    p {
+      background: #623e9b;
+    }
+  }
+
+  &.color-2 {
+    background-image: linear-gradient(to right, #40bea5, #487a8d);
+
+    p {
+      background: #3d9587;
+    }
+  }
+
+  &.color-3 {
+    background-image: linear-gradient(to right, #ff6584, #9f4ea0);
+
+    p {
+       background: #c45887;
+     }
+  }
 
   > div {
     padding: 50px;
@@ -22,7 +45,6 @@
 
   p {
     color: $white-100;
-    background: #623e9b;
     display: inline-block;
     padding: 15px;
     border-radius: 25px;
