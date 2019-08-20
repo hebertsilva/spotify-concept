@@ -27,7 +27,7 @@ export default class Authorization extends Component {
   }
 
   render() {
-    const { redirect, loading } = this.state
+    const { redirect } = this.state
 
     if (redirect) {
       return <Redirect to="/me/" />

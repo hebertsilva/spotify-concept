@@ -27,8 +27,6 @@ export const tracks = async (req, res, next) => {
     const config = write.genHeaders(req, 'Bearer')
     const id = req.params.id
 
-    console.log('### id =>', id)
-
     const { data, status } = await request(API_BASE).get(
       `/playlists/${id}`,
       config

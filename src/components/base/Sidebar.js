@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import request from '../../utils/request'
 
 export default class Navigation extends Component {
@@ -35,9 +35,14 @@ export default class Navigation extends Component {
         {playlists.slice(0, 5).map((item, k) => {
           return (
             <li key={k}>
-              <Link to={`/me/playlists/${item.id}`} title={item.name}>
+              <NavLink
+                to={`/me/playlists/${item.id}`}
+                title={item.name}
+                strict
+                activeClassName="selected"
+              >
                 {splitName(item.name)}
-              </Link>
+              </NavLink>
             </li>
           )
         })}

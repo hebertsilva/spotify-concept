@@ -2,6 +2,7 @@
 @import "core/config";
 @import "core/mixins";
 @import "core/utils";
+@import "core/buttons";
 
 // Base
 @import "base/sidebar";
@@ -9,4 +10,4 @@
 
 // Commons
 @import "pages/common";
-@import "core/buttons";
+@import "pages/playlists";

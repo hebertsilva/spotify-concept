@@ -3,4 +3,14 @@
   position: relative;
   display: flex;
   height: 100vh;
+
+  .content {
+    width: calc(100% - 260px);
+    height: 100vh;
+    flex: auto;
+    position: fixed;
+    overflow-y: auto;
+    right: 0;
+    display: flex;
+  }
 }

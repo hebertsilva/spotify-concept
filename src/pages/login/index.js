@@ -18,7 +18,7 @@ export default class Login extends Component {
         <div className="home-children">
           <div className="children-box">
             <h1 className="site-name">
-              <img src={logo} title="Spotify Concept" width="150" />
+              <img src={logo} alt="Spotify Concept" width="150" />
             </h1>
 
             <h2 className="font-1">
@@ -27,7 +27,7 @@ export default class Login extends Component {
             <p>Sign in your Spotify for an awesome experience</p>
 
             <a
-              href="#"
+              href="/"
               onClick={this.signin}
               className="button button-green-100"
             >

@@ -1,0 +1,70 @@
+.playlists-wrapper {
+  padding: 50px;
+}
+
+// Tracks
+.tracks-list {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 20px;
+
+  thead {
+    border-spacing: 0;
+  }
+  
+  th {
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0 20px;
+    text-align: left;
+  }
+
+  th, td {
+    color: $gray-300;
+    vertical-align: middle;
+    line-height: 1.4em;
+    font-weight: 500;
+  }
+
+  strong {
+    color: $gray-400;
+  }
+
+  tbody {
+    tr {
+      border-radius: 5px;
+      overflow: hidden;
+      background: $white-100;
+
+      td {
+        padding: 20px;
+
+        &:first-child {
+          border-radius: 5px 0 0 5px;
+        }
+
+        &:last-child {
+          border-radius: 0 5px 5px 0;
+          min-width: 100px;
+        }
+      }
+    }
+  }
+
+  .popularity {
+    span {
+      border-left: 4px solid $green-200;
+      display: inline-block;
+      height: 16px;
+      border-radius: 2px;
+
+      &:not(:last-child) {
+        margin-right: 4px;
+      }
+
+      &.active ~ span {
+        border-color: $gray-300;
+      }
+    }
+  }
+}
