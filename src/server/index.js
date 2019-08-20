@@ -8,13 +8,16 @@ require('dotenv').config()
 const app = express()
 const router = express.Router()
 
+app.proxy = true
+
 app.use(express.json())
 app.use(cookieParse())
 app.use(session)
 app.use(router)
 app.use(services)
 
-const port = 3001
-app.listen(port, () => console.log(`Listening on port ${port}`))
+const port = process.env.PORT || 3001
+const host = process.env.HOST || '0.0.0.0'
+app.listen(port, host, () => console.info(`Listening on port ${port}`))
 
 export default app
