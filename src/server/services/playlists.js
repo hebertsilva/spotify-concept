@@ -26,10 +26,12 @@ export const tracks = async (req, res, next) => {
   try {
     const config = write.genHeaders(req, 'Bearer')
     const id = req.params.id
+    const params = req.query
 
     const { data, status } = await request(API_BASE).get(
       `/playlists/${id}`,
-      config
+      config,
+      params
     )
 
     if (!data.status === 200) {

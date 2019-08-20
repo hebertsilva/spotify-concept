@@ -6,26 +6,27 @@ export default class Tracks extends Component {
   state = {
     playlists: [],
     loaded: false,
-    path: null
+    id: ''
   }
 
   componentDidUpdate() {
-    const { id } = this.props.match.params
-    if (id !== this.state.path) {
-      this.getTracks()
-    }
+    this.getTracks()
   }
 
   componentDidMount() {
     this.getTracks()
   }
 
-  getTracks = async () => {
+  getTracks = async (query = null) => {
     const { id } = this.props.match.params
-    const { data, status } = await request().get(`/playlists/${id}`)
 
-    if (status === 200) {
-      this.setState({ playlists: data, loaded: true, path: id })
+    if (id !== this.state.id || query) {
+      const url = query ? `/playlists/${id}?${query}` : `/playlists/${id}`
+      const { data, status } = await request().get(url)
+
+      if (status === 200) {
+        this.setState({ playlists: data, loaded: true, id: id })
+      }
     }
   }
 
@@ -33,7 +34,7 @@ export default class Tracks extends Component {
     const min = Math.floor((time / 1000 / 60) << 0)
     const sec = Math.floor((time / 1000) % 60)
 
-    return `${min}:${sec}`
+    return `${min}:${sec < 10 ? '0' + sec : sec}`
   }
 
   genPopularity = value => {
@@ -50,6 +51,28 @@ export default class Tracks extends Component {
     }
 
     return <div className="popularity">{rows}</div>
+  }
+
+  splitUrlNav = url => {
+    return url.split('?')[1]
+  }
+
+  prevNavPlaylist = event => {
+    event.preventDefault()
+    const url = this.state.playlists.tracks.previous
+
+    if (url) {
+      this.getTracks(this.splitUrlNav(url))
+    }
+  }
+
+  prevNextPlaylist = event => {
+    event.preventDefault()
+    const url = this.state.playlists.tracks.next
+
+    if (url) {
+      this.getTracks(this.splitUrlNav(url))
+    }
   }
 
   renderTracksList = () => {
@@ -77,26 +100,58 @@ export default class Tracks extends Component {
   }
 
   render() {
-    if (!this.state.loaded) {
+    const { playlists, loaded } = this.state
+
+    if (!loaded) {
       return <Loading />
     }
 
     return (
       <div className="playlists-wrapper">
-        <h1>playlists</h1>
-        <table className="tracks-list">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Song</th>
-              <th>Artist</th>
-              <th>Album</th>
-              <th>Time</th>
-              <th>Plays</th>
-            </tr>
-          </thead>
-          <tbody>{this.renderTracksList()}</tbody>
-        </table>
+        <div className="playlists-head">
+          <div>
+            <h1 className="name">{playlists.name}</h1>
+
+            <p>
+              <i className="icon-star"></i> {playlists.tracks.total} songs
+            </p>
+          </div>
+        </div>
+
+        <div className="playlists-body">
+          <table className="tracks-list">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Song</th>
+                <th>Artist</th>
+                <th>Album</th>
+                <th>Time</th>
+                <th>Plays</th>
+              </tr>
+            </thead>
+            <tbody>{this.renderTracksList()}</tbody>
+          </table>
+
+          {(playlists.tracks.next || playlists.tracks.previous) && (
+            <div className="playlists-nav">
+              <a
+                href="/"
+                onClick={this.prevNavPlaylist}
+                className={!playlists.tracks.previous ? 'disabled' : ''}
+              >
+                Previous
+              </a>
+              <a
+                href="/"
+                onClick={this.prevNextPlaylist}
+                className={!playlists.tracks.next ? 'disabled' : ''}
+              >
+                Next
+              </a>
+            </div>
+          )}
+        </div>
       </div>
     )
   }

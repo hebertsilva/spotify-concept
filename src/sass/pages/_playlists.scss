@@ -1,5 +1,39 @@
 .playlists-wrapper {
+  
+}
+
+.playlists-head {
+  background-image: linear-gradient(to right, #914dfe, #44345d);
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+
+  > div {
+    padding: 50px;
+  }
+
+  h1 {
+    color: $white-100;
+    font-size: 40px;
+    line-height: 1.4em;
+    font-weight: 800;
+    max-width: 600px;
+  }
+
+  p {
+    color: $white-100;
+    background: #623e9b;
+    display: inline-block;
+    padding: 15px;
+    border-radius: 25px;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+}
+
+.playlists-body {
   padding: 50px;
+  padding-top: 20px;
 }
 
 // Tracks
@@ -65,6 +99,28 @@
       &.active ~ span {
         border-color: $gray-300;
       }
+    }
+  }
+}
+
+.playlists-nav {
+  margin-top: 30px;
+  text-align: center;
+
+  a {
+    display: inline-block;
+    color: $white-100;
+    background: $green-200;
+    padding: 15px;
+    border-radius: 25px;
+    font-size: 15px;
+    margin: 0 20px;
+    min-width: 110px;
+    text-align: center;
+
+    &.disabled {
+      opacity: 0.6;
+      pointer-events: none;
     }
   }
 }
