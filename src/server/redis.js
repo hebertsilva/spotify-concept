@@ -1,9 +1,9 @@
 import redis from 'redis'
 
-const [port, host] = [6379, 'localhost']
+const [port, host] = [process.env.REDIS_PORT, process.env.REDIS_HOST]
 const client = redis.createClient({
-  port: port,
-  host: host,
+  port: port || 6379,
+  host: host || localhost,
   db: 0
 })
 
