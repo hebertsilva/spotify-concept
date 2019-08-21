@@ -87,13 +87,25 @@ export default class Navigation extends Component {
               </NavLink>
             </li>
             <li>
-              <Link to="/">Recently Played</Link>
+              <NavLink
+                to="/me/recents"
+                title="Recently Played"
+                activeClassName="selected"
+              >
+                Recently Played
+              </NavLink>
             </li>
             <li>
               <Link to="/">Liked songs</Link>
             </li>
             <li>
-              <Link to="/">Albums</Link>
+              <NavLink
+                to="/me/albums"
+                title="Albums"
+                activeClassName="selected"
+              >
+                Albums
+              </NavLink>
             </li>
             <li>
               <Link to="/">Artists</Link>

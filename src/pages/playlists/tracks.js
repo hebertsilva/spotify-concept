@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import request from '../../utils/request'
 import Loading from '../../components/ui/Loading'
+import ListTracks from '../../components/tracks/ListTracks'
 
 export default class Tracks extends Component {
   state = {
@@ -33,29 +34,6 @@ export default class Tracks extends Component {
     }
   }
 
-  convertTime = time => {
-    const min = Math.floor((time / 1000 / 60) << 0)
-    const sec = Math.floor((time / 1000) % 60)
-
-    return `${min}:${sec < 10 ? '0' + sec : sec}`
-  }
-
-  genPopularity = value => {
-    const media = parseInt(value / 10)
-    let rows = []
-
-    for (let index = 0; index < 8; index++) {
-      rows.push(
-        <span
-          className={`${media === index ? 'active' : ''}`}
-          key={index}
-        ></span>
-      )
-    }
-
-    return <div className="popularity">{rows}</div>
-  }
-
   splitUrlNav = url => {
     return url.split('?')[1]
   }
@@ -78,30 +56,6 @@ export default class Tracks extends Component {
     if (url) {
       this.getTracks(this.splitUrlNav(url))
     }
-  }
-
-  renderTracksList = () => {
-    const { playlists, loaded } = this.state
-    if (!loaded) {
-      return <tr></tr>
-    }
-
-    const { tracks } = playlists
-    return tracks.items.map((item, k) => {
-      const track = item.track
-      return (
-        <tr key={k}>
-          <td>{track.track_number}</td>
-          <td>
-            <strong>{track.name}</strong>
-          </td>
-          <td>{track.artists[0].name}</td>
-          <td>{track.album.name}</td>
-          <td>{this.convertTime(track.duration_ms)}</td>
-          <td>{this.genPopularity(track.popularity)}</td>
-        </tr>
-      )
-    })
   }
 
   render() {
@@ -128,19 +82,7 @@ export default class Tracks extends Component {
         </div>
 
         <div className="playlists-body">
-          <table className="tracks-list">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Song</th>
-                <th>Artist</th>
-                <th>Album</th>
-                <th>Time</th>
-                <th>Plays</th>
-              </tr>
-            </thead>
-            <tbody>{this.renderTracksList()}</tbody>
-          </table>
+          <ListTracks tracks={playlists.tracks.items} />
 
           {(playlists.tracks.next || playlists.tracks.previous) && (
             <div className="playlists-nav">

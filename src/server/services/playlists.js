@@ -53,7 +53,43 @@ export const recommendations = async (req, res) => {
       config
     )
 
-    console.log('### recommendations (data) =>', data)
+    if (!data.status === 200) {
+      throw { data, status }
+    }
+
+    write.response(res, data, status)
+  } catch (err) {
+    write.response(res, err.data, err.status)
+  }
+}
+
+export const albums = async (req, res) => {
+  try {
+    const config = write.genHeaders(req, 'Bearer')
+
+    const { data, status } = await request(API_BASE).get(
+      `/me/top/artists`,
+      config
+    )
+
+    if (!data.status === 200) {
+      throw { data, status }
+    }
+
+    write.response(res, data, status)
+  } catch (err) {
+    write.response(res, err.data, err.status)
+  }
+}
+
+export const recents = async (req, res) => {
+  try {
+    const config = write.genHeaders(req, 'Bearer')
+
+    const { data, status } = await request(API_BASE).get(
+      `/me/player/recently-played`,
+      config
+    )
 
     if (!data.status === 200) {
       throw { data, status }

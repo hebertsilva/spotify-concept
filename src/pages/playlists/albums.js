@@ -2,19 +2,19 @@ import React, { Component } from 'react'
 // import request from '../../utils/request'
 // import Loading from '../../components/ui/Loading'
 
-export default class MadeForYou extends Component {
+export default class Albums extends Component {
   componentDidMount() {
-    this.getTracksMadeForYou()
+    this.getTracksAlbums()
   }
 
-  getTracksMadeForYou = async () => {
-    // const { data, status } = await request().get('/recommendations')
+  getTracksAlbums = async () => {
+    // const { data, status } = await request().get('/albums')
   }
 
   render() {
     return (
       <div>
-        <h1>Made for You</h1>
+        <h1>albums</h1>
       </div>
     )
   }
