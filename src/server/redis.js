@@ -2,23 +2,25 @@ import redis from 'redis'
 
 require('dotenv').config()
 
-const [port, host] = [process.env.REDIS_PORT, process.env.REDIS_HOST]
+const PORT = process.env.REDIS_PORT || 6379
+const HOST = process.env.REDIS_HOST || 'localhost'
+
 const client = redis.createClient({
-  port: port || 6379,
-  host: host || 'localhost',
+  port: PORT,
+  host: HOST,
   db: 0
 })
 
 client.on('error', err => {
   if (err.toString().includes('ECONNREFUSED')) {
-    console.info(`Error connecting to Redis server at ${host}:${port}`)
+    console.info(`Error connecting to Redis server at ${HOST}:${PORT}`)
   } else {
     consola.error(err)
   }
 })
 
 client.on('connect', () => {
-  console.info(`Connected to Redis server at ${host}:${port}`)
+  console.info(`Connected to Redis server at ${HOST}:${PORT}`)
 })
 
 export default client
