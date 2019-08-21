@@ -1,9 +1,11 @@
 import redis from 'redis'
 
+require('dotenv').config()
+
 const [port, host] = [process.env.REDIS_PORT, process.env.REDIS_HOST]
 const client = redis.createClient({
   port: port || 6379,
-  host: host || localhost,
+  host: host || 'localhost',
   db: 0
 })
 
