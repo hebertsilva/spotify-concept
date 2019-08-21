@@ -1,5 +1,5 @@
 export function isEmpty(obj) {
-  for (const key in obj) {
+  for (let key in obj) {
     if (obj.hasOwnProperty(key)) {
       return false
     }
