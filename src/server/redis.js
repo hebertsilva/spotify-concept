@@ -15,7 +15,7 @@ client.on('error', err => {
   if (err.toString().includes('ECONNREFUSED')) {
     console.info(`Error connecting to Redis server at ${HOST}:${PORT}`)
   } else {
-    consola.error(err)
+    console.error(err)
   }
 })
 
