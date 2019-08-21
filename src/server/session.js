@@ -1,6 +1,11 @@
 import session from 'express-session'
+import connectRedis from 'connect-redis'
+import client from './redis'
+
+const RedisStore = connectRedis(session)
 
 const options = {
+  store: new RedisStore({ client }),
   secret: process.env.SESSION_SECRET,
   allowEmpty: true,
   resave: false,

@@ -4,8 +4,6 @@ import { query } from '../../utils/filter'
 import request from '../../utils/request'
 import Loading from '../../components/ui/Loading'
 
-import './style.scss'
-
 export default class Authorization extends Component {
   state = {
     redirect: false,
@@ -34,7 +32,7 @@ export default class Authorization extends Component {
     }
 
     return (
-      <div className="auth-wrapper">
+      <div className="wrapper-content">
         <Loading />
       </div>
     )

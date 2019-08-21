@@ -24,6 +24,13 @@ function genHeaders(req, type) {
         }
       }
       break
+    case 'Basic':
+      return {
+        headers: {
+          Authorization: `Basic ${accounts.access_token}`
+        }
+      }
+      break
     default:
       return {
         headers: {

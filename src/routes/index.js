@@ -4,6 +4,7 @@ import Login from '../pages/login'
 import Profile from '../pages/profile'
 import Auth from '../pages/auth'
 import Tracks from '../pages/playlists/tracks'
+import MadeForYou from '../pages/playlists/madeforyou'
 
 const routes = [
   {
@@ -32,6 +33,11 @@ const routes = [
             path: '/me/playlists/:id',
             exact: true,
             component: Tracks
+          },
+          {
+            path: '/me/madeforyou',
+            exact: true,
+            component: MadeForYou
           }
         ]
       }
