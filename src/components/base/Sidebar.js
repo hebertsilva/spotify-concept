@@ -56,17 +56,7 @@ export default class Navigation extends Component {
         <div className="nav-section nav-fixed">
           <ol>
             <li>
-              <Link to="/">
-                <i className="icon-heart-empty"></i>Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/">
-                <i className="icon-heart-empty"></i>Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/">
+              <Link to="/me">
                 <i className="icon-heart-empty"></i>Home
               </Link>
             </li>

@@ -9,7 +9,7 @@ import {
   recents
 } from './playlists'
 import { setToken } from './token'
-import { account } from './user'
+import { account, following } from './user'
 
 const router = express.Router()
 const apiUri = '/proxy/api'
@@ -18,6 +18,7 @@ router.get(`${apiUri}/login`, login)
 router.post(`${apiUri}/signout`, signout)
 router.post(`${apiUri}/set-token`, setToken)
 router.get(`${apiUri}/me`, account)
+router.get(`${apiUri}/following`, following)
 router.get(`${apiUri}/playlists`, playlists)
 router.get(`${apiUri}/playlists/:id`, tracks)
 router.get(`${apiUri}/recommendations`, recommendations)
