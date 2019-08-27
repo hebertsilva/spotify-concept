@@ -30,13 +30,17 @@ export default class Profile extends Component {
       return <Loading />
     }
 
+    const avatar = account.images.length ? account.images[0].url : null
+
     return (
       <div className="content-wrapper">
         <div className="content-head color-1">
           <div class="head-profile">
-            <div className="profile-image">
-              <img src={account.images[0].url} alt={account.display_name} />
-            </div>
+            {avatar && (
+              <div className="profile-image">
+                <img src={avatar} alt={account.display_name} />
+              </div>
+            )}
 
             <div>
               <span>USER</span>
@@ -50,7 +54,6 @@ export default class Profile extends Component {
         </div>
 
         <div className="content-body">
-          
         </div>
       </div>
     )
