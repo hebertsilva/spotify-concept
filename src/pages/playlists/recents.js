@@ -30,9 +30,7 @@ export default class Recents extends Component {
     return (
       <div className="playlists-wrapper">
         <div
-          className={`playlists-head color-${Math.floor(
-            Math.random() * 3 + 1
-          )}`}
+          className={`content-head color-${Math.floor(Math.random() * 3 + 1)}`}
         >
           <div>
             <h1 className="name">Recently played</h1>
@@ -43,7 +41,7 @@ export default class Recents extends Component {
           </div>
         </div>
 
-        <div className="playlists-body">
+        <div className="content-body">
           <ListTracks tracks={tracks} />
         </div>
       </div>

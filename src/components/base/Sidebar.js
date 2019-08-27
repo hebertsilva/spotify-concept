@@ -57,7 +57,7 @@ export default class Navigation extends Component {
           <ol>
             <li>
               <Link to="/me">
-                <i className="icon-heart-empty"></i>Home
+                <i className="icon-heart-empty"></i>Profile
               </Link>
             </li>
           </ol>

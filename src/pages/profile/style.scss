@@ -1,0 +1,29 @@
+.head-profile {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+
+  span {
+    font-size: 13px;
+    color: white;
+  }
+
+  div {
+    display: inline-block;
+    padding: 20px;
+  }
+
+  .profile-image {
+    overflow: hidden;
+    padding: 0;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    font-size: 0;
+    box-shadow: 0 0 10px rgba(#444, 0.7);
+
+    img {
+      width: 150px
+    }
+  }
+}

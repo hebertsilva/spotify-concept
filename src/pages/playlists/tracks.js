@@ -68,9 +68,7 @@ export default class Tracks extends Component {
     return (
       <div className="playlists-wrapper">
         <div
-          className={`playlists-head color-${Math.floor(
-            Math.random() * 3 + 1
-          )}`}
+          className={`content-head color-${Math.floor(Math.random() * 3 + 1)}`}
         >
           <div>
             <h1 className="name">{playlists.name}</h1>
@@ -81,7 +79,7 @@ export default class Tracks extends Component {
           </div>
         </div>
 
-        <div className="playlists-body">
+        <div className="content-body">
           <ListTracks tracks={playlists.tracks.items} />
 
           {(playlists.tracks.next || playlists.tracks.previous) && (
