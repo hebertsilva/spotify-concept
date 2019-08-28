@@ -47,9 +47,10 @@ export const tracks = async (req, res, next) => {
 export const recommendations = async (req, res) => {
   try {
     const config = write.genHeaders(req, 'Bearer')
+    const type = req.query.type
 
     const { data, status } = await request(API_BASE).get(
-      `/audio-features`,
+      `/me/top/${type}`,
       config
     )
 

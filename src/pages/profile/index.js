@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import request from '../../utils/request'
-// import { Redirect } from 'react-router-dom'
 import Loading from '../../components/ui/Loading'
 
 import './style.scss'
@@ -8,19 +7,58 @@ import './style.scss'
 export default class Profile extends Component {
   state = {
     account: {},
+    artists: [],
     loaded: false
   }
 
   componentDidMount() {
     this.getProfileMe()
+    this.getTopArtists()
   }
 
   getProfileMe = async () => {
     const { data, status } = await request().get('/me')
-    console.log('## account =>', data)
+
     if (status === 200) {
       this.setState({ account: data, loaded: true })
     }
+  }
+
+  getTopArtists = async () => {
+    const { data, status } = await request().get('/top?type=artists')
+
+    if (status === 200) {
+      this.setState({ artists: data.items })
+    }
+  }
+
+  renderTopArtists = () => {
+    const { artists } = this.state
+    if (!artists.length) {
+      return ''
+    }
+
+    return (
+      <div className="list-albums">
+        <h1>Top artists</h1>
+
+        <ol className="list">
+          {artists.map((value, key) => {
+            const image = value.images[0]
+
+            return (
+              <li key={key}>
+                <div className="image">
+                  <img src={image.url} alt={value.name} />
+                </div>
+
+                <h2>{value.name}</h2>
+              </li>
+            )
+          })}
+        </ol>
+      </div>
+    )
   }
 
   render() {
@@ -35,7 +73,7 @@ export default class Profile extends Component {
     return (
       <div className="content-wrapper">
         <div className="content-head color-1">
-          <div class="head-profile">
+          <div className="head-profile">
             {avatar && (
               <div className="profile-image">
                 <img src={avatar} alt={account.display_name} />
@@ -54,6 +92,7 @@ export default class Profile extends Component {
         </div>
 
         <div className="content-body">
+          {this.renderTopArtists()}
         </div>
       </div>
     )

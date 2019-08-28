@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import request from '../../utils/request'
+import request from '../../utils/request'
 // import Loading from '../../components/ui/Loading'
 
 export default class MadeForYou extends Component {
@@ -8,7 +8,9 @@ export default class MadeForYou extends Component {
   }
 
   getTracksMadeForYou = async () => {
-    // const { data, status } = await request().get('/recommendations')
+    const { data, status } = await request().get('/top?type=artists')
+
+    console.log('## data =>', data)
   }
 
   render() {

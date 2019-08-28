@@ -1,6 +1,7 @@
 .wrapper-content {
   background: $white-200;
-  position: relative;
+  position: fixed;
+  width: 100%;
   display: flex;
   height: 100vh;
 

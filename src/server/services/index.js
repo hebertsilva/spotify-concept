@@ -21,7 +21,7 @@ router.get(`${apiUri}/me`, account)
 router.get(`${apiUri}/following`, following)
 router.get(`${apiUri}/playlists`, playlists)
 router.get(`${apiUri}/playlists/:id`, tracks)
-router.get(`${apiUri}/recommendations`, recommendations)
+router.get(`${apiUri}/top`, recommendations)
 router.get(`${apiUri}/albums`, albums)
 router.get(`${apiUri}/recents`, recents)
 
