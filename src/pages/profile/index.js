@@ -85,15 +85,14 @@ export default class Profile extends Component {
               <h1 className="name">{account.display_name}</h1>
 
               <p>
-                <i className="icon-star"></i> {account.followers.total} followers
+                <i className="icon-star"></i> {account.followers.total}
+                followers
               </p>
             </div>
           </div>
         </div>
 
-        <div className="content-body">
-          {this.renderTopArtists()}
-        </div>
+        <div className="content-body">{this.renderTopArtists()}</div>
       </div>
     )
   }
