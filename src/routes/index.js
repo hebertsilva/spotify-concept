@@ -1,7 +1,7 @@
 import Root from '../pages'
 import Me from '../pages/me'
 import Login from '../pages/login'
-import Profile from '../pages/profile'
+import ProfileContainer from '../pages/profile/Container'
 import Auth from '../pages/auth'
 import Tracks from '../pages/playlists/tracks'
 import MadeForYou from '../pages/playlists/madeforyou'
@@ -29,7 +29,7 @@ const routes = [
           {
             path: '/me/',
             exact: true,
-            component: Profile
+            component: ProfileContainer
           },
           {
             path: '/me/playlists/:id',
