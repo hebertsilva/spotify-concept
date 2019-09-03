@@ -3,13 +3,14 @@ import { merge } from 'ramda'
 import { createReducer } from '../utils/reducer'
 import { handleActions } from '../utils/actions'
 
-import { TESTE } from '../utils/constants'
+import { SET_PLAYLIST } from '../utils/constants'
 
 const initialState = {
-  teste: {}
+  all: [],
+  isLoading: false
 }
 
-const actions = [TESTE]
+const actions = [SET_PLAYLIST]
 
 const handler = (state, action) => merge(state, action.payload)
 const handlers = handleActions(actions, handler)

@@ -1,11 +1,21 @@
 import { GET_PLAYLIST } from '../utils/constants'
-
-const STORE_TESTE = 'STORE_TESTE'
+import { setPlaylists } from '../actions/playlists'
+import request from '../../utils/request'
 
 const handleGetPlaylists = async (store, dispatch, action) => {
   dispatch(action)
 
-  console.log('### action handleGetPlaylists =>', action)
+  try {
+    const { data, status } = await request().get('/playlists')
+
+    if (status === 200) {
+      store.dispatch(setPlaylists(data.items))
+    } else {
+      throw {}
+    }
+  } catch (err) {
+    store.dispatch(setPlaylists(err))
+  }
 }
 
 const handlers = {

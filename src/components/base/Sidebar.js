@@ -1,28 +1,17 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Link, NavLink } from 'react-router-dom'
-import request from '../../utils/request'
 
 export default class Navigation extends Component {
-  state = {
-    playlists: [],
-    loaded: false
-  }
-
-  componentDidMount() {
-    this.getPlaylists()
-  }
-
-  getPlaylists = async () => {
-    const { data, status } = await request().get('/playlists')
-
-    if (status === 200) {
-      this.setState({ playlists: data.items, loaded: true })
-    }
+  static propTypes = {
+    playlists: PropTypes.array,
+    isLoading: PropTypes.bool
   }
 
   renderPlaylistsMenu = () => {
-    const { playlists, loaded } = this.state
-    if (!loaded) {
+    const { playlists, isLoading } = this.props
+
+    if (isLoading) {
       return ''
     }
 

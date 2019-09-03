@@ -3,7 +3,7 @@ const STORE_TESTE = 'STORE_TESTE'
 const handleTeste = async (store, dispatch, action) => {
   dispatch(action)
 
-  console.log('### action handleTeste =>', action)
+  // console.log('### action handleTeste =>', action)
 }
 
 const handlers = {
