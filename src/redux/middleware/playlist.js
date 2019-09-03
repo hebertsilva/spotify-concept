@@ -1,5 +1,5 @@
 import { GET_PLAYLIST } from '../utils/constants'
-import { setPlaylists } from '../actions/playlists'
+import { setPlaylists, errPlaylists } from '../actions/playlists'
 import request from '../../utils/request'
 
 const handleGetPlaylists = async (store, dispatch, action) => {
@@ -11,10 +11,10 @@ const handleGetPlaylists = async (store, dispatch, action) => {
     if (status === 200) {
       store.dispatch(setPlaylists(data.items))
     } else {
-      throw {}
+      throw data
     }
   } catch (err) {
-    store.dispatch(setPlaylists(err))
+    store.dispatch(errPlaylists(err))
   }
 }
 
