@@ -1,9 +1,9 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import reducers from './reducers'
-import { Teste } from './middleware'
+import { Teste, Playlist } from './middleware'
 
 export function configureStore(initialState) {
-  const middleware = [Teste()]
+  const middleware = [Teste(), Playlist()]
   let enhancer
 
   if (process.env.NODE_ENV === 'development') {
