@@ -4,7 +4,7 @@ import Login from '../pages/login'
 import ProfileContainer from '../pages/profile/Container'
 import Auth from '../pages/auth'
 import Tracks from '../pages/playlists/tracks'
-import MadeForYou from '../pages/playlists/madeforyou'
+import Artists from '../pages/playlists/artists'
 import Albums from '../pages/playlists/albums'
 import Recents from '../pages/playlists/recents'
 
@@ -37,9 +37,9 @@ const routes = [
             component: Tracks
           },
           {
-            path: '/me/madeforyou',
+            path: '/me/top-artists',
             exact: true,
-            component: MadeForYou
+            component: Artists
           },
           {
             path: '/me/albums',

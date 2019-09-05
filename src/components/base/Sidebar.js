@@ -58,11 +58,11 @@ export default class Navigation extends Component {
           <ol>
             <li>
               <NavLink
-                to="/me/madeforyou"
-                title="Made for you"
+                to="/me/top-artists"
+                title="Top Artists"
                 activeClassName="selected"
               >
-                Made for you
+                Top Artists
               </NavLink>
             </li>
             <li>
