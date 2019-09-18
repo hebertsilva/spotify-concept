@@ -1,17 +1,3 @@
-// import { handleActions } from '../utils/actions'
-
-// const TESTE = 'TESTE'
-
-// const initialState = {
-//   isRequired: true
-// }
-
-// const actions = [TESTE]
-
-// const handlers = {}
-
-// export default Object.assign(initialState, handlers)
-
 import { merge } from 'ramda'
 import { createReducer } from '../utils/reducer'
 import { handleActions } from '../utils/actions'
