@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import request from '../../utils/request'
 import Loading from '../../components/ui/Loading'
 
 import './style.scss'
 
 export default class Profile extends Component {
+  static propTypes = {
+    onTeste: PropTypes.func
+  }
+
   state = {
     account: {},
     artists: [],
@@ -14,6 +19,8 @@ export default class Profile extends Component {
   componentDidMount() {
     this.getProfileMe()
     this.getTopArtists()
+
+    this.props.onTeste()
   }
 
   getProfileMe = async () => {
@@ -85,7 +92,7 @@ export default class Profile extends Component {
               <h1 className="name">{account.display_name}</h1>
 
               <p>
-                <i className="icon-star"></i> {account.followers.total}
+                <i className="icon-star"></i> {account.followers.total}{' '}
                 followers
               </p>
             </div>

@@ -1,10 +1,10 @@
 import Root from '../pages'
 import Me from '../pages/me'
 import Login from '../pages/login'
-import Profile from '../pages/profile'
+import ProfileContainer from '../pages/profile/Container'
 import Auth from '../pages/auth'
 import Tracks from '../pages/playlists/tracks'
-import MadeForYou from '../pages/playlists/madeforyou'
+import Artists from '../pages/playlists/artists'
 import Albums from '../pages/playlists/albums'
 import Recents from '../pages/playlists/recents'
 
@@ -29,7 +29,7 @@ const routes = [
           {
             path: '/me/',
             exact: true,
-            component: Profile
+            component: ProfileContainer
           },
           {
             path: '/me/playlists/:id',
@@ -37,9 +37,9 @@ const routes = [
             component: Tracks
           },
           {
-            path: '/me/madeforyou',
+            path: '/me/top-artists',
             exact: true,
-            component: MadeForYou
+            component: Artists
           },
           {
             path: '/me/albums',

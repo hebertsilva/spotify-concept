@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import request from '../../utils/request'
 // import Loading from '../../components/ui/Loading'
 
-export default class MadeForYou extends Component {
+export default class TopArtists extends Component {
   componentDidMount() {
-    this.getTracksMadeForYou()
+    this.getTracksTopArtists()
   }
 
-  getTracksMadeForYou = async () => {
+  getTracksTopArtists = async () => {
     const { data, status } = await request().get('/top?type=artists')
 
     console.log('## data =>', data)
@@ -16,7 +16,7 @@ export default class MadeForYou extends Component {
   render() {
     return (
       <div>
-        <h1>Made for You</h1>
+        <h1>Top Artists</h1>
       </div>
     )
   }
