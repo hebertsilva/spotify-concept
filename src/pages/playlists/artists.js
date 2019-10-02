@@ -10,7 +10,7 @@ export default class TopArtists extends Component {
   getTracksTopArtists = async () => {
     const { data, status } = await request().get('/top?type=artists')
 
-    console.log('## data =>', data)
+    // console.log('## data =>', data)
   }
 
   render() {
